@@ -1,6 +1,6 @@
 package com.company;
 
-public class reminder extends alarm {
+public class Reminder extends RecurringAlarm {
     private String date;
 
     public String getDate() {

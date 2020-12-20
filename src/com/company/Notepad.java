@@ -3,10 +3,10 @@ package com.company;
 import java.util.ArrayList;
 
 public class Notepad {
-    private ArrayList<record> records = new ArrayList<>();
+    private ArrayList<Record> records = new ArrayList<>();
 
     public void createPerson() {
-        var person = new person();
+        var person = new Person();
         person.setFirstName(InputUtils.askString("First name"));
         person.setLastName(InputUtils.askString("Last name"));
         person.setPhone(InputUtils.askString("Phone"));
@@ -15,7 +15,7 @@ public class Notepad {
     }
 
     public void listRecords() {
-        for (record rec : records) {
+        for (Record rec : records) {
             System.out.println(rec);
         }
     }
@@ -27,31 +27,31 @@ public class Notepad {
     }
 
     public void createBook() {
-        var Book = new book();
-        Book.setAuthor(InputUtils.askString("Author"));
-        Book.setTitle(InputUtils.askString("Title"));
-        Book.setIsbn(InputUtils.askString("Isbn"));
-        records.add(Book);
+        var book = new Book();
+        book.setAuthor(InputUtils.askString("Author"));
+        book.setTitle(InputUtils.askString("Title"));
+        book.setIsbn(InputUtils.askString("Isbn"));
+        records.add(book);
     }
 
     public void createStickyNote() {
-        var Note = new note();
-        Note.setText(InputUtils.askString("Enter text"));
-        records.add(Note);
+        var note = new StickyNote();
+        note.setText(InputUtils.askString("Enter text"));
+        records.add(note);
     }
 
     public void createRecurringAlarm() {
-        var Alarm = new alarm();
-        Alarm.setTime(InputUtils.askString("Enter time"));
-        Alarm.setText(InputUtils.askString("Enter text"));
-        records.add(Alarm);
+        var alarm = new RecurringAlarm();
+        alarm.setTime(InputUtils.askString("Enter time"));
+        alarm.setText(InputUtils.askString("Enter text"));
+        records.add(alarm);
     }
 
     public void createReminder() {
-        var Reminder = new reminder();
-        Reminder.setDate(InputUtils.askString("Enter date"));
-        Reminder.setTime(InputUtils.askString("Enter time"));
-        Reminder.setText(InputUtils.askString("Enter text"));
-        records.add(Reminder);
+        var reminder = new Reminder();
+        reminder.setDate(InputUtils.askString("Enter date"));
+        reminder.setTime(InputUtils.askString("Enter time"));
+        reminder.setText(InputUtils.askString("Enter text"));
+        records.add(reminder);
     }
 }

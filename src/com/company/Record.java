@@ -1,10 +1,10 @@
 package com.company;
 
-public abstract class record {
+public abstract class Record {
     private int id;
     private static int counter = 0;
 
-    public record() {
+    public Record() {
         counter++;
         id = counter;
 

@@ -1,6 +1,6 @@
 package com.company;
 
-public class note extends record {
+public class StickyNote extends Record {
     private String text;
 
     public String getText() {

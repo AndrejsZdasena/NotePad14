@@ -1,6 +1,6 @@
 package com.company;
 
-public class alarm extends note {
+public class RecurringAlarm extends StickyNote {
     private String time;
 
     public String getTime() {
