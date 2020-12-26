@@ -5,14 +5,24 @@ import java.util.ArrayList;
 public class Notepad {
     private ArrayList<Record> records = new ArrayList<>();
 
-    public void createPerson() {
-        var person = new Person();
-        person.setFirstName(InputUtils.askString("First name"));
-        person.setLastName(InputUtils.askString("Last name"));
-        person.setPhone(InputUtils.askString("Phone"));
-        person.setEmail(InputUtils.askString("E-mail"));
-        records.add(person);
+    public void createRecord(RecordType recordType) {
+        var rec = recordType.createRecord();
+        //processRecord(rec);
+        rec.askData();
+        records.add(rec);
+        System.out.println("Created:" + rec);
     }
+    public void choosePet(Species species) {
+        var rec = species.choosePet();
+        //processRecord(rec);
+        rec.askData();
+        records.add(rec);
+        System.out.println("Created:" + rec);
+    }
+    /*private void processRecord(Record rec) {
+        rec.askData();
+        records.add(rec);
+        System.out.println("Created:"+rec);*/
 
     public void listRecords() {
         for (Record rec : records) {
@@ -24,34 +34,5 @@ public class Notepad {
         System.out.println("To create record type command Create");
         System.out.println("To show the list of records firstly need to create records then type command List");
         System.out.println("To close program type Exit");
-    }
-
-    public void createBook() {
-        var book = new Book();
-        book.setAuthor(InputUtils.askString("Author"));
-        book.setTitle(InputUtils.askString("Title"));
-        book.setIsbn(InputUtils.askString("Isbn"));
-        records.add(book);
-    }
-
-    public void createStickyNote() {
-        var note = new StickyNote();
-        note.setText(InputUtils.askString("Enter text"));
-        records.add(note);
-    }
-
-    public void createRecurringAlarm() {
-        var alarm = new RecurringAlarm();
-        alarm.setTime(InputUtils.askString("Enter time"));
-        alarm.setText(InputUtils.askString("Enter text"));
-        records.add(alarm);
-    }
-
-    public void createReminder() {
-        var reminder = new Reminder();
-        reminder.setDate(InputUtils.askString("Enter date"));
-        reminder.setTime(InputUtils.askString("Enter time"));
-        reminder.setText(InputUtils.askString("Enter text"));
-        records.add(reminder);
     }
 }

@@ -33,28 +33,18 @@ public class Main {
     }
 
     private static void createRecord() {
-        var type = InputUtils.askString("Type");
-        switch (type) {
-            case "person":
-                notepad.createPerson();
-                break;
-            case "book":
-                notepad.createBook();
-                break;
-            case "note":
-                notepad.createStickyNote();
-                break;
-            case "alarm":
-                notepad.createRecurringAlarm();
-                break;
-            case "reminder":
-                notepad.createReminder();
-                break;
-            default:
-                System.out.println("Unknown command");
-        }
-
+        var strType = InputUtils.askString("Type");
+        var type = RecordType.valueOf(strType);
+        var strType1 = InputUtils.askString("Choose pet");
+        var species = Species.valueOf(strType1);
+        notepad.createRecord(type);
+        notepad.choosePet(species);
     }
+    /*private static void choosePet(){
+        var strType = InputUtils.askString("Pet");
+        var pet = Species.valueOf(strType);
+        notepad.createRecord(pet);
+    }*/
 
     private static void showHelp() {
         System.out.println("This is very helpfull\n");

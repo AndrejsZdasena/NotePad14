@@ -14,8 +14,12 @@ public abstract class Record {
         return id;
     }
 
+
     @Override
     public String toString() {
         return String.format(" id : %d", id);
+
     }
+
+    public abstract void askData();
 }

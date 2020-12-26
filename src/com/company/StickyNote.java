@@ -3,6 +3,7 @@ package com.company;
 public class StickyNote extends Record {
     private String text;
 
+
     public String getText() {
         return text;
     }
@@ -10,9 +11,15 @@ public class StickyNote extends Record {
     public void setText(String text) {
         this.text = text;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         var str = super.toString();
-        return String.format("%s; text %s",str, text);
+        return String.format("%s; text %s", str, text);
+    }
+
+    @Override
+    public void askData() {
+        text = InputUtils.askString("Enter text");
     }
 }
