@@ -7,22 +7,10 @@ public class Notepad {
 
     public void createRecord(RecordType recordType) {
         var rec = recordType.createRecord();
-        //processRecord(rec);
         rec.askData();
         records.add(rec);
         System.out.println("Created:" + rec);
     }
-    public void choosePet(Species species) {
-        var rec = species.choosePet();
-        //processRecord(rec);
-        rec.askData();
-        records.add(rec);
-        System.out.println("Created:" + rec);
-    }
-    /*private void processRecord(Record rec) {
-        rec.askData();
-        records.add(rec);
-        System.out.println("Created:"+rec);*/
 
     public void listRecords() {
         for (Record rec : records) {
@@ -30,9 +18,18 @@ public class Notepad {
         }
     }
 
-    public void showHelp() {
-        System.out.println("To create record type command Create");
-        System.out.println("To show the list of records firstly need to create records then type command List");
-        System.out.println("To close program type Exit");
+    public void showHelpForCreate() {
+        System.out.println("Create - add record");
+        System.out.println("List - show created records");
+        System.out.println("Exit - close programm");
+    }
+
+    public void showHelpForType() {
+        System.out.println("BOOK - add book records");
+        System.out.println("PERSON - add person records");
+        System.out.println("ALARM - set time ");
+        System.out.println("NOTE - add notes");
+        System.out.println("REMINDER - set date");
+        System.out.println("PET - add name and species");
     }
 }

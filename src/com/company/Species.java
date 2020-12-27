@@ -4,8 +4,6 @@ public enum Species {
     CAT,
     DOG,
     RABBIT,
-    FISH;
+    FISH
 
-
-    public abstract Record choosePet();
 }

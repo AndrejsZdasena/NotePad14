@@ -34,7 +34,7 @@ public enum RecordType {
     },
     PET {
         @Override
-        public Record createRecord(){
+        public Record createRecord() {
             return new Pet();
         }
     };

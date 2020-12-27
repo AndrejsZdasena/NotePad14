@@ -29,11 +29,12 @@ public class Pet extends Record {
     @Override
     public void askData() {
         pet = InputUtils.askString("Pet's name");
+        System.out.println("Species:");
         for (Species species : Species.values()
         ) {
             System.out.println(species);
         }
-        pet = InputUtils.askString("Choose species");
-
+        var strSpc = InputUtils.askString("Choose kind of species");
+        species = Species.valueOf(strSpc);
     }
 }
