@@ -1,6 +1,9 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Pet extends Record {
+    private static final Scanner scanner = new Scanner(System.in);
     private String pet;
     private Species species;
 
@@ -28,13 +31,26 @@ public class Pet extends Record {
 
     @Override
     public void askData() {
+        //while (true) {
+        // try {
         pet = InputUtils.askString("Pet's name");
         System.out.println("Species:");
         for (Species species : Species.values()
         ) {
             System.out.println(species);
         }
-        var strSpc = InputUtils.askString("Choose kind of species");
-        species = Species.valueOf(strSpc);
+        while (true) {
+            try {
+
+                var strSpc = InputUtils.askString("Choose kind of species");
+                species = Species.valueOf(strSpc);
+                break;
+
+            } catch (IllegalArgumentException e) {
+
+                System.out.println("Species name has lowercase");
+            }
+        }
+
     }
 }

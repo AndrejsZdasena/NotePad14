@@ -31,21 +31,37 @@ public class Main {
         notepad.listRecords();
     }
 
-    private static void createRecord() {
-        showHelpForType();
-        var strType = InputUtils.askString("Type");
-        var type = RecordType.valueOf(strType);
-        notepad.createRecord(type);
+    public static void createRecord() {
+
+
+        for (RecordType s : RecordType.values()
+        ) {
+            s.printHelp();
+        }
+
+        while (true) {
+            try {
+                var strType = InputUtils.askString("Type");
+                var type = RecordType.valueOf(strType);
+                notepad.createRecord(type);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Unknown record type");
+                for (RecordType s : RecordType.values()
+                ) {
+                    s.printHelp();
+                }
+            }
+        }
 
     }
+
 
     private static void showHelpForCreate() {
         System.out.println("Commands");
-        notepad.showHelpForCreate();
+        System.out.println("Create - add record");
+        System.out.println("List - show created records");
+        System.out.println("Exit - close program");
     }
 
-    private static void showHelpForType() {
-        System.out.println("Types - write with capslock: \n");
-        notepad.showHelpForType();
-    }
 }

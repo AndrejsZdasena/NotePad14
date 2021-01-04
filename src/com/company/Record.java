@@ -1,7 +1,7 @@
 package com.company;
 
 public abstract class Record {
-    private int id;
+    private final int id;
     private static int counter = 0;
 
     public Record() {
