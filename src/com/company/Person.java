@@ -55,4 +55,12 @@ public class Person extends Record {
         email = InputUtils.askString("Enter email");
     }
 
+    @Override
+    public boolean contains(String substr) {
+        return super.contains(substr)
+                || firstName.contains(substr)
+                || phone.contains(substr)
+                || lastName.contains(substr)
+                || email.contains(substr);
+    }
 }

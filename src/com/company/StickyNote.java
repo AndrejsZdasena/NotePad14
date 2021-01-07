@@ -22,4 +22,10 @@ public class StickyNote extends Record {
     public void askData() {
         text = InputUtils.askString("Enter text");
     }
+
+    @Override
+    public boolean contains(String substr) {
+        return super.contains(substr)
+                || text.contains(substr);
+    }
 }

@@ -31,14 +31,26 @@ public class Book extends Record {
 
     @Override
     public String toString() {
-        var str = super.toString();
+        System.out.println("BOOK.toString() started");
+
+        String str = super.toString();
         return String.format("%s; title %s; author: %s; isbn: %s", str, title, author, isbn);
     }
 
     @Override
     public void askData() {
+        System.out.println("BOOK.askData() started");
+
         title = InputUtils.askString("Enter title");
         author = InputUtils.askString("Enter author");
         isbn = InputUtils.askString("Enter isbn");
+    }
+
+    @Override
+    public boolean contains(String substr) {
+        return super.contains(substr)
+                || title.contains(substr)
+                || author.contains(substr)
+                || isbn.contains(substr);
     }
 }

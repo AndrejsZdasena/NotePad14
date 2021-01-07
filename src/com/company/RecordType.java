@@ -61,7 +61,7 @@ public enum RecordType {
 
         @Override
         public void printHelp() {
-            System.out.println("REMINDER - add time records");
+            System.out.println("REMINDER - add date records");
         }
 
     },
@@ -80,6 +80,7 @@ public enum RecordType {
     };
 
     public abstract Record createRecord();
+
     public abstract void printHelp();
 
 }

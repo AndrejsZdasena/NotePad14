@@ -1,9 +1,7 @@
 package com.company;
 
-import java.util.Scanner;
 
 public class Pet extends Record {
-    private static final Scanner scanner = new Scanner(System.in);
     private String pet;
     private Species species;
 
@@ -31,8 +29,6 @@ public class Pet extends Record {
 
     @Override
     public void askData() {
-        //while (true) {
-        // try {
         pet = InputUtils.askString("Pet's name");
         System.out.println("Species:");
         for (Species species : Species.values()
@@ -52,5 +48,12 @@ public class Pet extends Record {
             }
         }
 
+    }
+
+    @Override
+    public boolean contains(String substr) {
+        return super.contains(substr)
+                || pet.contains(substr)
+                || species.toString().contains(substr);
     }
 }

@@ -1,0 +1,1 @@
+ id : 1 First name: Andrejs; Last name: Zdasena; Phone: 27172163; E-mail: cheha1989@gmail.com

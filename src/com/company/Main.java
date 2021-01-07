@@ -1,9 +1,11 @@
 package com.company;
 
+
+
 public class Main {
     private static final Notepad notepad = new Notepad();
-
     public static void main(String[] args) {
+        notepad.loadRecords();
 
         boolean running = true;
         while (running) {
@@ -11,28 +13,49 @@ public class Main {
             var cmd = InputUtils.askString("Enter command");
             System.out.println();
             switch (cmd) {
-                case "List":
+                case "list":
                     listRecords();
                     break;
-                case "Create":
+                case "create":
                     createRecord();
                     break;
-                case "Exit":
+                case "delete":
+                    deleteRecord();
+                    break;
+                case "find":
+                    findRecord();
+                    break;
+                case "exit":
                     running = false;
                     break;
                 default:
                     System.out.println("Unknown command");
             }
         }
+        notepad.saveRecords();
         System.out.println("Good bye");
+    }
+
+    private static void deleteRecord() {
+        int id;
+        id = InputUtils.askInt("Enter id");
+        notepad.deleteRecord(id);
+    }
+
+    private static void findRecord() {
+        var substr = InputUtils.askString("Enter name");
+        notepad.findRecord(substr);
     }
 
     private static void listRecords() {
         notepad.listRecords();
     }
 
+
+
     public static void createRecord() {
 
+        System.out.println("Main.createRecord() started");
 
         for (RecordType s : RecordType.values()
         ) {
@@ -41,8 +64,9 @@ public class Main {
 
         while (true) {
             try {
-                var strType = InputUtils.askString("Type");
-                var type = RecordType.valueOf(strType);
+                String strType;
+                strType = InputUtils.askString("Type");
+                RecordType type = RecordType.valueOf(strType);
                 notepad.createRecord(type);
                 break;
             } catch (IllegalArgumentException e) {
@@ -59,9 +83,11 @@ public class Main {
 
     private static void showHelpForCreate() {
         System.out.println("Commands");
-        System.out.println("Create - add record");
-        System.out.println("List - show created records");
-        System.out.println("Exit - close program");
+        System.out.println("create - add record");
+        System.out.println("delete - delete record");
+        System.out.println("find - find created records");
+        System.out.println("list - show created records");
+        System.out.println("exit - close program");
     }
 
 }

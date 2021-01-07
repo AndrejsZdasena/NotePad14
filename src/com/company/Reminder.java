@@ -22,4 +22,10 @@ public class Reminder extends RecurringAlarm {
         super.askData();
         date = InputUtils.askString("Enter data");
     }
+
+    @Override
+    public boolean contains(String substr) {
+        return super.contains(substr)
+                || date.contains(substr);
+    }
 }
