@@ -5,6 +5,7 @@ package com.company;
 public class Main {
     private static final Notepad notepad = new Notepad();
     public static void main(String[] args) {
+
         notepad.loadRecords();
 
         boolean running = true;
@@ -35,6 +36,7 @@ public class Main {
         notepad.saveRecords();
         System.out.println("Good bye");
     }
+
 
     private static void deleteRecord() {
         int id;

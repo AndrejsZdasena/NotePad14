@@ -1,6 +1,10 @@
 package com.company;
 
+
+import java.util.Scanner;
+
 public class Book extends Record {
+
     private String title;
     private String author;
     private String isbn;
@@ -46,11 +50,18 @@ public class Book extends Record {
         isbn = InputUtils.askString("Enter isbn");
     }
 
+    
+
     @Override
     public boolean contains(String substr) {
         return super.contains(substr)
                 || title.contains(substr)
                 || author.contains(substr)
                 || isbn.contains(substr);
+    }
+
+    @Override
+    public void load(Scanner in) {
+        getTitle();
     }
 }

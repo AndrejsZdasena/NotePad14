@@ -20,24 +20,29 @@ public class Notepad {
         System.out.println("Created:" + rec);
     }
 
+
     public void loadRecords() {
         try (var in = new Scanner(loadRecordsFile)) {
             while (in.hasNext()) {
-                for (Record rec : records) {
-                    rec.askData();
-                    records.add(rec);
-                }
+
+                String strType = in.next();
+                RecordType type = RecordType.valueOf(strType);
+                var rec = type.createRecord();
+                rec.load(in);
+                records.add(rec);
             }
+
         } catch (FileNotFoundException e) {
             System.out.println("Cannot read leaderboard");
         }
     }
-    public void saveRecords(){
-        try (var out = new PrintWriter(loadRecordsFile)){
-            for (Record rec : records){
+
+    public void saveRecords() {
+        try (var out = new PrintWriter(loadRecordsFile)) {
+            for (var rec : records) {
                 out.print(rec);
             }
-        }catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("Cannot save leaderboard");
         }
     }

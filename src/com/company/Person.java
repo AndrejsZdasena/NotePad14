@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Person extends Record {
 
     private String firstName;
@@ -62,5 +64,13 @@ public class Person extends Record {
                 || phone.contains(substr)
                 || lastName.contains(substr)
                 || email.contains(substr);
+    }
+
+    @Override
+    public void load(Scanner in) {
+        getFirstName();
+        getLastName();
+        getPhone();
+        getEmail();
     }
 }

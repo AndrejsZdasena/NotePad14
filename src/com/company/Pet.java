@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.util.Scanner;
+
 public class Pet extends Record {
     private String pet;
     private Species species;
@@ -55,5 +57,10 @@ public class Pet extends Record {
         return super.contains(substr)
                 || pet.contains(substr)
                 || species.toString().contains(substr);
+    }
+
+    @Override
+    public void load(Scanner in) {
+
     }
 }

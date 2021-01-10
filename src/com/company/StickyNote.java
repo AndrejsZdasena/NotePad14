@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class StickyNote extends Record {
     private String text;
 
@@ -27,5 +29,10 @@ public class StickyNote extends Record {
     public boolean contains(String substr) {
         return super.contains(substr)
                 || text.contains(substr);
+    }
+
+    @Override
+    public void load(Scanner in) {
+
     }
 }

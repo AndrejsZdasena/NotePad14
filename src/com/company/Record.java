@@ -1,8 +1,11 @@
 package com.company;
 
+import java.util.Scanner;
+
 public abstract class Record {
     private final int id;
     private static int counter = 0;
+
 
     public Record() {
         System.out.println("Record() id started");
@@ -27,9 +30,11 @@ public abstract class Record {
 
     public abstract void askData();
 
-    {
+    static {
         System.out.println("Record.askdata() started");
     }
+
+    //public abstract void loadData();
 
 
     public boolean contains(String substr) {
@@ -37,4 +42,6 @@ public abstract class Record {
         return strId.contains(substr);
     }
 
+
+    public abstract void load(Scanner in);
 }
