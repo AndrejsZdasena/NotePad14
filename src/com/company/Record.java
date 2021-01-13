@@ -1,9 +1,11 @@
 package com.company;
 
+import java.io.PrintWriter;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public abstract class Record {
-    private final int id;
+    private int id;
     private static int counter = 0;
 
 
@@ -34,7 +36,6 @@ public abstract class Record {
         System.out.println("Record.askdata() started");
     }
 
-    //public abstract void loadData();
 
 
     public boolean contains(String substr) {
@@ -43,5 +44,13 @@ public abstract class Record {
     }
 
 
-    public abstract void load(Scanner in);
+    public void load(Scanner in){
+        id = in.nextInt();
+    }
+
+    public abstract RecordType getMyType();
+
+    public void printToFile(PrintWriter out) {
+        out.print(id);
+    }
 }

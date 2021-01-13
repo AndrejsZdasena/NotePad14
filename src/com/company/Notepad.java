@@ -23,13 +23,15 @@ public class Notepad {
 
     public void loadRecords() {
         try (var in = new Scanner(loadRecordsFile)) {
-            while (in.hasNext()) {
+            while (in.hasNextLine()) {
 
-                String strType = in.next();
+                String strType = in.nextLine();
                 RecordType type = RecordType.valueOf(strType);
                 var rec = type.createRecord();
                 rec.load(in);
                 records.add(rec);
+
+
             }
 
         } catch (FileNotFoundException e) {
@@ -39,13 +41,18 @@ public class Notepad {
 
     public void saveRecords() {
         try (var out = new PrintWriter(loadRecordsFile)) {
-            for (var rec : records) {
-                out.print(rec);
+            for (Record rec : records
+            ) {
+                out.print(rec.getMyType());
+                rec.printToFile(out);
+
             }
+
         } catch (FileNotFoundException e) {
             System.out.println("Cannot save leaderboard");
         }
     }
+
 
     public void listRecords() {
         for (Record rec : records) {

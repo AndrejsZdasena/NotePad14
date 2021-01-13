@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class StickyNote extends Record {
@@ -33,6 +34,16 @@ public class StickyNote extends Record {
 
     @Override
     public void load(Scanner in) {
+       super.load(in);
+       text = in.next();
+    }
 
+    @Override
+    public RecordType getMyType() {
+        return RecordType.NOTE;
+    }
+    public void printToFile(PrintWriter out) {
+        super.printToFile(out);
+        out.println(text);
     }
 }

@@ -77,10 +77,12 @@ public enum RecordType {
         public void printHelp() {
             System.out.println("PET - add pet's name and species");
         }
+
     };
 
     public abstract Record createRecord();
 
     public abstract void printHelp();
+
 
 }

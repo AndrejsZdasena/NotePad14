@@ -1,6 +1,7 @@
 package com.company;
 
 
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Pet extends Record {
@@ -61,6 +62,19 @@ public class Pet extends Record {
 
     @Override
     public void load(Scanner in) {
-
+        super.load(in);
+        pet = in.next();
+        //species = in.next().toString(species);
     }
+
+    @Override
+    public RecordType getMyType() {
+        return RecordType.PET;
+    }
+    public void printToFile(PrintWriter out) {
+        super.printToFile(out);
+        out.println(pet);
+        out.println(species);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.company;
 
 
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Book extends Record {
@@ -50,7 +51,6 @@ public class Book extends Record {
         isbn = InputUtils.askString("Enter isbn");
     }
 
-    
 
     @Override
     public boolean contains(String substr) {
@@ -62,6 +62,21 @@ public class Book extends Record {
 
     @Override
     public void load(Scanner in) {
-        getTitle();
+        super.load(in);
+        title = in.nextLine();
+        author = in.nextLine();
+        isbn = in.nextLine();
+    }
+
+    @Override
+    public RecordType getMyType() {
+        return RecordType.BOOK;
+    }
+
+    public void printToFile(PrintWriter out) {
+        super.printToFile(out);
+        out.print(title);
+        out.print(author);
+        out.print(isbn);
     }
 }
